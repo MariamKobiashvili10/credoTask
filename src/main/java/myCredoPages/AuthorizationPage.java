@@ -13,7 +13,7 @@ public class AuthorizationPage {
     private final String
             userNameInputXpath = "//input[@id = 'username']",
             passwordInputXpath = "//input[@id = 'password']",
-            errorTextFieldBelowInputFieldXpath = "/following::crd-error[@aria-live='polite'][1]";
+            errorTextFieldBelowInputFieldXpath = "/parent::div/following-sibling::div//crd-error";
     //ამ ელემენტებზე დუბლიკაციები მოგვიწევდა პირდაპირ xpath-ებში რომ გაგვეტანა და სტრინგში ამიტომ ვინახავ
 
     private final By

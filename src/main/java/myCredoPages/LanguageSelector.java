@@ -16,7 +16,7 @@ public class LanguageSelector {
     }
 
     private By languageOption(String language) {
-        return By.xpath("//div[contains(@class,'cdk-overlay-pane')]//li[.//p[normalize-space()='" + language + "']]");
+        return By.xpath("//div[contains(@class,'cdk-overlay-pane')]//li[normalize-space()='"+language+"']");
     }
 
     @Step("checking languages are visible in dropdown menu and choosing language {language}")

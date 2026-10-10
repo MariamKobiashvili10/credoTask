@@ -17,8 +17,8 @@ public class RegistrationPage {
             datesDropdown = By.xpath("//crd-new-select-option//div[@role='listitem']"),
             dateDropdownHeaders = By.xpath("//crd-date-dropdowns//crd-new-select//h6"),
             registrationFormHeader = By.xpath("//app-registration//h5"),
-            errorTextFieldBelowDatesField = By.xpath("//crd-date-dropdowns//crd-new-select/parent::div//following::p[contains(@class,'text-negative')]"),
-            errorTextFieldBelowPersonalNumberInputField = By.xpath("//input[@id='personalNumber']//following::div//crd-error");
+            errorTextFieldBelowDatesField = By.xpath("//crd-date-dropdowns/following-sibling::p"),
+            errorTextFieldBelowPersonalNumberInputField = By.xpath("//identity-verification-form[@controlkey='personalInfo']//crd-error");
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
