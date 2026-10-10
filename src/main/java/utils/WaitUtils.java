@@ -1,6 +1,5 @@
 package utils;
 
-import config.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -25,11 +24,10 @@ public class WaitUtils {
     public void waitForElementToBeVisible(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     public void waitForPageLoad() {
         wait.until(driver ->
-                Objects.equals(
-                        ((JavascriptExecutor) driver)
-                                .executeScript("return document.readyState"),
+                Objects.equals(((JavascriptExecutor) driver).executeScript("return document.readyState"),
                         "complete"
                 )
         );
@@ -38,6 +36,7 @@ public class WaitUtils {
     public void waitForElementToHaveText(By locator, String text) {
         wait.until(ExpectedConditions.textToBe(locator, text));
     }
+
     public void waitForElementToBeClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }

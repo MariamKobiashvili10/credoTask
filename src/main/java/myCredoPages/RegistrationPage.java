@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import utils.WaitUtils;
 
 public class RegistrationPage {
@@ -47,6 +46,7 @@ public class RegistrationPage {
         waitUtils.waitForElementToBeVisible(errorTextFieldBelowDatesField);
         return driver.findElement(errorTextFieldBelowDatesField).getText();
     }
+
     @Step("Get error message below personal number field")
     public String getErrorTextBelowPersonalNumberField() {
         waitUtils.waitForElementToBeVisible(errorTextFieldBelowPersonalNumberInputField);

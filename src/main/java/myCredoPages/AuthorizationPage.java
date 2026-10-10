@@ -47,6 +47,7 @@ public class AuthorizationPage {
         driver.findElement(loginButton).click();
         return this;
     }
+
     @Step("Get error message below username input field")
     public String getErrorTextBelowUsernameField() {
         waitUtils.waitForElementToBeVisible(errorFieldBelowUserNameInputField);

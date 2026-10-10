@@ -2,10 +2,7 @@ package config.baseTest;
 
 import config.driver.DriverManager;
 import data.constants.Constants;
-import myCredoPages.AuthorizationPage;
 import myCredoPages.CommonPage;
-import myCredoPages.LanguageSelector;
-import myCredoPages.RegistrationPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
