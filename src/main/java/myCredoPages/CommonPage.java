@@ -24,12 +24,6 @@ public class CommonPage {
         return this;
     }
 
-    @Step("wait until error message is visible")
-    public CommonPage waitForErrorToBeVisible() {
-        waitUtils.waitForElementToBeVisible(errorAlert);
-        return this;
-    }
-
     @Step("wait until page is loaded")
     public CommonPage waitUntilPageIsLoaded() {
         waitUtils.waitForPageLoad();
@@ -43,8 +37,10 @@ public class CommonPage {
     }
 
     @Step("Get error alert message text")
-    public String getErrorAlertTextFieldText() {
-        return driver.findElement(errorAlert).getText();
+    public String waitForErrorAndGetAlertTextFieldText() {
+        return waitUtils
+                .waitForElementToBeVisible(errorAlert)
+                .getText();
     }
 
 }

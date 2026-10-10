@@ -21,8 +21,10 @@ public class WaitUtils {
         );
     }
 
-    public void waitForElementToBeVisible(By locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public WebElement waitForElementToBeVisible(By locator) {
+        return wait.until(
+                ExpectedConditions.visibilityOfElementLocated(locator)
+        );
     }
 
     public void waitForPageLoad() {
@@ -37,7 +39,9 @@ public class WaitUtils {
         wait.until(ExpectedConditions.textToBe(locator, text));
     }
 
-    public void waitForElementToBeClickable(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+    public WebElement waitForElementToBeClickable(By locator) {
+        return wait.until(
+                ExpectedConditions.elementToBeClickable(locator)
+        );
     }
 }

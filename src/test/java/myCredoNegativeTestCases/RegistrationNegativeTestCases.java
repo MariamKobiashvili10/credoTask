@@ -102,7 +102,6 @@ public class RegistrationNegativeTestCases extends BaseTest {
                 .chooseDateInDropDown()
                 .clickToNextButton();
 
-        commonPage.waitForErrorToBeVisible();
-        softAssert.assertEquals(commonPage.getErrorAlertTextFieldText(), languageData.getUnderagePersonError());
+        softAssert.assertEquals(commonPage.waitForErrorAndGetAlertTextFieldText(), languageData.getUnderagePersonError());
     }
 }

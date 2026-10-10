@@ -8,10 +8,7 @@ import utils.WaitUtils;
 public class LanguageSelector {
     private final WaitUtils waitUtils;
 
-    private final WebDriver driver;
-
     public LanguageSelector(WebDriver driver) {
-        this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
     }
 
@@ -21,9 +18,7 @@ public class LanguageSelector {
 
     @Step("checking languages are visible in dropdown menu and choosing language {language}")
     public LanguageSelector checkLanguagesAreVisibleInDropDownAndChooseLanguage(String language) {
-        By languageOption = languageOption(language);
-        waitUtils.waitForElementToBeVisible(languageOption);
-        driver.findElement(languageOption).click();
+        waitUtils.waitForElementToBeVisible(languageOption(language)).click();
         return this;
     }
 }

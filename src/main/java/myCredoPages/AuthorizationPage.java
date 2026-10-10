@@ -3,7 +3,6 @@ package myCredoPages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import utils.WaitUtils;
 
 public class AuthorizationPage {
@@ -50,21 +49,24 @@ public class AuthorizationPage {
 
     @Step("Get error message below username input field")
     public String getErrorTextBelowUsernameField() {
-        waitUtils.waitForElementToBeVisible(errorFieldBelowUserNameInputField);
-        return driver.findElement(errorFieldBelowUserNameInputField).getText();
+        return waitUtils
+                .waitForElementToBeVisible(errorFieldBelowUserNameInputField)
+                .getText();
+
     }
 
     @Step("Get error message below password input field")
     public String getErrorTextBelowPasswordField() {
-        waitUtils.waitForElementToBeVisible(errorFieldBelowPasswordInputField);
-        return driver.findElement(errorFieldBelowPasswordInputField).getText();
+        return waitUtils
+                .waitForElementToBeVisible(errorFieldBelowPasswordInputField)
+                .getText();
     }
 
-    @Step("Click to Registration button")
+    @Step("wait until button is clickable and click to Registration button")
     public AuthorizationPage waitUntilElementIsClickableAndClickToRegistrationButton() {
-        WebElement registrationButtonWebElement = driver.findElement(registrationButton);
-        waitUtils.waitForElementToBeClickable(registrationButtonWebElement);
-        registrationButtonWebElement.click();
+        waitUtils
+                .waitForElementToBeClickable(registrationButton)
+                .click();
         return this;
     }
 

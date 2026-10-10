@@ -83,8 +83,6 @@ public class AuthorizationNegativeTestCases extends BaseTest {
                 .enterPassword(generateRandomString(7))
                 .clickToLogInButton();
 
-        commonPage.waitForErrorToBeVisible();
-
-        softAssert.assertEquals(commonPage.getErrorAlertTextFieldText(), languageData.getInvalidCredentialsError());
+        softAssert.assertEquals(commonPage.waitForErrorAndGetAlertTextFieldText(), languageData.getInvalidCredentialsError());
     }
 }

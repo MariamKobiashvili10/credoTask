@@ -2,6 +2,7 @@ package myCredoPages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.WaitUtils;
@@ -26,12 +27,14 @@ public class RegistrationPage {
 
     @Step("Click on date dropdown with label: {labelText}")
     public RegistrationPage clickDateDropdownByText(String labelText) {
-        driver.findElements(dateDropdownHeaders)
+        WebElement element = driver.findElements(dateDropdownHeaders)
                 .stream()
                 .filter(el -> el.getText().trim().equalsIgnoreCase(labelText))
                 .findFirst()
-                .ifPresent(WebElement::click);
-
+                .orElseThrow(() -> new NoSuchElementException(
+                        "dropdown header not found:" + labelText
+                ));
+        element.click();
         return this;
     }
 
@@ -43,14 +46,14 @@ public class RegistrationPage {
 
     @Step("Get error message below dates field")
     public String getErrorTextBelowDatesField() {
-        waitUtils.waitForElementToBeVisible(errorTextFieldBelowDatesField);
-        return driver.findElement(errorTextFieldBelowDatesField).getText();
+        return waitUtils
+                .waitForElementToBeVisible(errorTextFieldBelowDatesField).getText();
     }
 
     @Step("Get error message below personal number field")
     public String getErrorTextBelowPersonalNumberField() {
-        waitUtils.waitForElementToBeVisible(errorTextFieldBelowPersonalNumberInputField);
-        return driver.findElement(errorTextFieldBelowPersonalNumberInputField).getText();
+        return waitUtils
+                .waitForElementToBeVisible(errorTextFieldBelowPersonalNumberInputField).getText();
     }
 
     @Step("Click to next button")
